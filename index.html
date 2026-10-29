@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raízes do Paraná - Sabonetes Sustentáveis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Sacramento&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --rosa-claro: #ffe5ec;
+      --rosa-medio: #ffb3c6;
+      --rosa-forte: #ff4d6d;
+      --roxo-suave: #c77dff;
+      --roxo-escuro: #7b2cbf;
+      --fundo: #fff0f5;
+      --texto: #4a154b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--fundo);
+      color: var(--texto);
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--rosa-medio), var(--roxo-suave));
+      padding: 35px 20px;
+      border-radius: 20px;
+      text-align: center;
+      color: white;
+      box-shadow: 0 8px 20px rgba(123, 44, 191, 0.15);
+      border: 3px solid #ffffff;
+      margin-bottom: 30px;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      margin-bottom: 8px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    }
+
+    header p {
+      font-size: 1.1rem;
+      font-weight: 300;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* Card de Identificação / Nomes */
+    .card-identificacao {
+      background: white;
+      border: 3px dashed var(--rosa-forte);
+      border-radius: 20px;
+      padding: 25px;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 15px rgba(255, 77, 109, 0.1);
+    }
+
+    .card-identificacao h2 {
+      font-family: 'Sacramento', cursive;
+      color: var(--roxo-escuro);
+      font-size: 2.8rem;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+    }
+
+    .info-item {
+      background: var(--rosa-claro);
+      padding: 12px 18px;
+      border-radius: 12px;
+      border-left: 5px solid var(--roxo-suave);
+    }
+
+    .info-item strong {
+      color: var(--roxo-escuro);
+      display: block;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Seções */
+    .secao {
+      background: white;
+      padding: 25px;
+      border-radius: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border: 1px solid var(--rosa-medio);
+    }
+
+    .secao h3 {
+      color: var(--roxo-escuro);
+      border-bottom: 2px solid var(--rosa-medio);
+      padding-bottom: 8px;
+      margin-bottom: 15px;
+      font-size: 1.4rem;
+    }
+
+    .grid-duplo {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 15px;
+    }
+
+    .card-detalhe {
+      background: var(--rosa-claro);
+      padding: 15px;
+      border-radius: 15px;
+      border: 1px solid var(--rosa-medio);
+    }
+
+    .card-detalhe h4 {
+      color: var(--rosa-forte);
+      margin-bottom: 8px;
+    }
+
+    ul {
+      margin-left: 20px;
+    }
+
+    /* Tabela de Testes */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    th, td {
+      border: 1px solid var(--rosa-medio);
+      padding: 8px 12px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    th {
+      background: var(--roxo-suave);
+      color: white;
+    }
+
+    .data-tag {
+      background: var(--roxo-suave);
+      color: white;
+      padding: 3px 10px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      display: inline-block;
+      margin-bottom: 5px;
+    }
+
+    .diario-item {
+      background: var(--rosa-claro);
+      padding: 12px;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      border-left: 4px solid var(--rosa-forte);
+    }
+
+    /* Galeria com 19 Fotos */
+    .galeria-titulo {
+      text-align: center;
+      color: var(--roxo-escuro);
+      margin: 40px 0 20px 0;
+      font-size: 1.8rem;
+    }
+
+    .galeria-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 15px;
+      margin-bottom: 40px;
+    }
+
+    .foto-box {
+      background: white;
+      border: 2px solid var(--rosa-medio);
+      border-radius: 15px;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .foto-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(199, 125, 255, 0.3);
+      border-color: var(--rosa-forte);
+    }
+
+    .foto-box img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 10px;
+      background-color: var(--rosa-claro);
+    }
+
+    .foto-box span {
+      display: block;
+      margin-top: 8px;
+      font-size: 0.85rem;
+      color: var(--roxo-escuro);
+      font-weight: 600;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: var(--roxo-escuro);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- Cabeçalho -->
+    <header>
+      <h1>✨ Raízes do Paraná ✨</h1>
+      <p>Desenvolvimento de Sabonetes Sustentáveis por Meio do Microencapsulamento de Bioativos Regionais e Resíduos Agroindustriais</p>
+    </header>
+
+    <!-- Quadrado de Identificação -->
+    <div class="card-identificacao">
+      <h2>Ficha do Projeto</h2>
+      <div class="info-grid">
+        <div class="info-item">
+          <strong>🏫 Colégio Estadual</strong>
+          <span>Colégio Estadual de Segredo</span>
+        </div>
+        <div class="info-item">
+          <strong>👩‍🏫 Coordenadora / Orientadora</strong>
+          <span>Sandra Rozanski</span>
+        </div>
+        <div class="info-item">
+          <strong>👩‍🎓 Alunas Pesquisadoras</strong>
+          <span>Ana Julia da Silva<br>Ana Clara Borth Ojeda</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 1ª ETAPA -->
+    <div class="secao">
+      <h3>🌿 1ª Etapa: Extração dos Compostos Bioativos</h3>
+      <div class="grid-duplo">
+        
+        <div class="card-detalhe">
+          <h4>🍃 Erva-Mate</h4>
+          <p><strong>Ingredientes:</strong> 50g erva-mate seca, 150ml glicerina vegetal (75%), 50ml água filtrada (25%).</p>
+          <p><strong>Preparo:</strong> Triturar a erva, misturar a glicerina com a água e adicionar a erva. Deixar em vidro com tampa por 10 a 15 dias de repouso, agitando 1 vez ao dia. Filtrar em filtro de papel, guardar em frasco âmbar e reservar um pouco do pó fino.</p>
+        </div>
+
+        <div class="card-detalhe">
+          <h4>🌲 Pinhão</h4>
+          <p><strong>Ingredientes:</strong> 30g casca de pinhão, 500ml de água.</p>
+          <p><strong>Preparo:</strong> Lavar cascas, secar e triturar. Colocar 30g em 500ml de água e aquecer por 30 min. Resfriar, filtrar, aquecer novamente e reduzir em até 50% do líquido. Reservar um pouco do pó fino.</p>
+        </div>
+
+        <div class="card-detalhe">
+          <h4>☕ Café</h4>
+          <p><strong>Ingredientes:</strong> 50g de café, 150ml glicerina vegetal, 50ml água.</p>
+          <p><strong>Preparo:</strong> Misturar tudo, guardar em recipiente fechado por 10 a 15 dias agitando diariamente. Filtrar e guardar em local escuro. Reservar um pouco do pó fino.</p>
+        </div>
+
+        <div class="card-detalhe">
+          <h4>🍇 Uva</h4>
+          <p><strong>Ingredientes:</strong> 100g casca de uva, 70ml glicerina, 30ml H₂O destilada.</p>
+          <p><strong>Preparo:</strong> Triturar as cascas, misturar a glicerina e a água. Deixar em vidro fechado por 10 a 15 dias, agitando diariamente. Filtrar e reservar um pouco do pó.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 2ª ETAPA -->
+    <div class="secao">
+      <h3>📜 2ª Etapa: Embalagem Sustentável</h3>
+      <p>Confecção de papel reciclado artesanal (Papel Semente) para atuar como embalagem primária dos sabonetes, promovendo a economia circular e mitigando impactos ambientais.</p>
+    </div>
+
+    <!-- 3ª ETAPA -->
+    <div class="secao">
+      <h3>🔮 3ª Etapa: Microencapsulações</h3>
+      <p><strong>Ingredientes:</strong> 10g gelatina incolor sem sabor, 5g amido, 20ml H₂O fria, 10 a 15ml extrato vegetal, 1 colher de glicerina vegetal, água gelada + gelo.</p>
+      <p><strong>Preparo:</strong></p>
+      <ul>
+        <li>Diluir 5g de amido em 15ml de água fria (para evitar grumos).</li>
+        <li>Hidratar 10g de gelatina em 20ml de água fria por 5 minutos.</li>
+        <li>Levar a gelatina ao banho-maria leve (40–50 °C) mexendo devagar até ficar líquida.</li>
+        <li>Adicionar a solução de amido, 10 a 15ml do extrato vegetal e 1 colher de glicerina vegetal até a mistura ficar espessa.</li>
+        <li>Com uma seringa, pingar gotinhas da mistura aquecida em um recipiente com água bem gelada e gelo. Esperar de 3 a 5 minutos.</li>
+        <li>Retirar com peneira, colocar sobre papel-manteiga e levar à geladeira por 20 a 30 minutos.</li>
+        <li><em>Nota:</em> Para colocar no sabonete, a base precisa estar em temperatura abaixo de 45 °C para não derreter as microcápsulas.</li>
+      </ul>
+    </div>
+
+    <!-- 4ª ETAPA: SABONETES -->
+    <div class="secao">
+      <h3>🧼 4ª Etapa: Produção dos Sabonetes Artesanais</h3>
+      <div class="grid-duplo">
+        
+        <div class="card-detalhe">
+          <h4>1. Pinhão Defense</h4>
+          <p><em>Limpeza profunda, antioxidante e presença de compostos fenólicos.</em></p>
+          <ul>
+            <li>500g base glicerinada (derretida a 50-65°C)</li>
+            <li>15ml extrato de pinhão</li>
+            <li>5ml óleo vegetal (girassol)</li>
+            <li>1 colher (chá) do pó da casca de pinhão peneirada</li>
+            <li>1 colher de argila branca</li>
+            <li>5 a 10 microcápsulas bioativas</li>
+          </ul>
+        </div>
+
+        <div class="card-detalhe">
+          <h4>2. Mate Fresh</h4>
+          <p><em>Refrescante, anti-odor e antioxidante.</em></p>
+          <ul>
+            <li>500g base glicerinada (derretida a 50-65°C)</li>
+            <li>15ml extrato de erva-mate</li>
+            <li>5ml óleo vegetal (girassol)</li>
+            <li>1 colher de erva micronizada (pó peneirado)</li>
+            <li>2 a 3 gotas de essência de hortelã</li>
+            <li>5 a 10 microcápsulas de erva-mate</li>
+          </ul>
+        </div>
+
+        <div class="card-detalhe">
+          <h4>3. Café Active</h4>
+          <ul>
+            <li>500g base glicerinada</li>
+            <li>15ml extrato de café</li>
+            <li>5ml óleo vegetal</li>
+            <li>1 colher de pó de café peneirado</li>
+            <li>1 colher de aveia fina</li>
+            <li>5 a 10 microcápsulas de café</li>
+          </ul>
+        </div>
+
+        <div class="card-detalhe">
+          <h4>4. Tríplice Bioativo</h4>
+          <ul>
+            <li>500g base glicerinada</li>
+            <li>5ml extrato de pinhão</li>
+            <li>5ml extrato de erva-mate</li>
+            <li>5ml extrato de café</li>
+            <li>1 colher do pó de cada vegetal</li>
+            <li>5ml óleo vegetal</li>
+            <li>Microcápsulas mistas</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 5ª ETAPA: CONTROLO DE QUALIDADE E TESTES -->
+    <div class="secao">
+      <h3>🧪 5ª Etapa: Avaliação de Controlo de Qualidade e Testes</h3>
+      
+      <p><strong>Método de Teste de pH:</strong> 1g de sabonete ralado em 10ml de água. Deixar de molho por 1 min, mergulhar a fita de pH por 10 segundos. Repetir 3 vezes.</p>
+      <p><strong>Método de Teste de Espuma:</strong> 50ml de água, 1g de sabonete ralado, agitar por 10 segundos (ou 10 agitadas) e medir a altura da espuma. Repetir 3 vezes.</p>
+
+      <h4 style="margin-top: 15px; color: var(--rosa-forte);">📊 Resultados dos Testes de pH e Espuma:</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Amostra</th>
+            <th>Teste 1</th>
+            <th>Teste 2</th>
+            <th>Teste 3</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Erva-Mate</strong></td>
+            <td>pH: 7 | Espuma: 100 ml</td>
+            <td>pH: 7 | Espuma: 200 ml</td>
+            <td>pH: 8 | Espuma: 150 ml</td>
+          </tr>
+          <tr>
+            <td><strong>Café</strong></td>
+            <td>pH: 8 | Espuma: 125 ml</td>
+            <td>pH: 7 | Espuma: 100 ml</td>
+            <td>pH: 8 | Espuma: 100 ml</td>
+          </tr>
+          <tr>
+            <td><strong>Pinhão</strong></td>
+            <td>pH: 7 | Espuma: 125 ml</td>
+            <td>pH: 7 | Espuma: 75 ml</td>
+            <td>pH: 7 | Espuma: 75 ml</td>
+          </tr>
+          <tr>
+            <td><strong>Uva</strong></td>
+            <td>pH: 8 | Espuma: 100 ml</td>
+            <td>pH: 7 | Espuma: 150 ml</td>
+            <td>pH: 7 | Espuma: 120 ml</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4 style="margin-top: 20px; color: var(--rosa-forte);">💧 Testes de Solubilidade da Microencapsulação:</h4>
+      <div class="grid-duplo" style="margin-top: 10px;">
+        <div class="card-detalhe">
+          <strong>Água Normal:</strong>
+          <ul>
+            <li>Teste 1: A micro não se dissolveu e continuou intacta.</li>
+            <li>Teste 2: Permaneceu intacta.</li>
+            <li>Teste 3: Continuou intacta.</li>
+          </ul>
+        </div>
+        <div class="card-detalhe">
+          <strong>Água Aquecida (35°C–40°C / 50°C):</strong>
+          <ul>
+            <li>Teste 1: Não se dissolveu a microencapsulação.</li>
+            <li>Teste 2: Não dissolveu a micro.</li>
+            <li>Teste 3: Não se dissolveu, permaneceu intacta.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIÁRIO DE BORDO COMPLETO -->
+    <div class="secao">
+      <h3>📖 Diário de Bordo Completo das Atividades</h3>
+      
+      <div class="diario-item">
+        <span class="data-tag">14/05/2026</span>
+        <p>Começamos a higienização das cascas de pinhão com um pano limpo e úmido, deixando secar naturalmente. Também deixamos as cascas de uva a secar no sol por um tempo.</p>
+      </div>
+
+      <div class="diario-item">
+        <span class="data-tag">27/05/2026</span>
+        <p>Iniciamos a 1ª etapa: misturas das raízes com glicerina vegetal e água. Colocamos cada mistura num recipiente de vidro, tampamos com papel alumínio e deixamos de repouso por 10–15 dias, agitando 1 vez por dia.</p>
+      </div>
+
+      <div class="diario-item">
+        <span class="data-tag">19/06/2026</span>
+        <p>Depois de 15 dias, começamos a filtrar as misturas utilizando um funil e coador de papel.</p>
+      </div>
+
+      <div class="diario-item">
+        <span class="data-tag">26/06/2026</span>
+        <p>Continuamos a filtrar as misturas e guardamos as que já tinham sido filtradas num local escuro.</p>
+      </div>
+
+      <div class="diario-item">
+        <span class="data-tag">06/08/2026</span>
+        <p>Começamos a fazer mais sabonetes com os testes de microencapsulação. Os primeiros foram os de café.</p>
+      </div>
+
+      <div class="diario-item">
+        <span class="data-tag">13/08/2026</span>
+        <p>Começamos a fazer o papel de café (papel cortado de molho em água com café). Realizamos a microencapsulação derretendo gelatina a 40/50 °C, gotejando com seringa na água com gelo e levando ao papel-manteiga na geladeira.</p>
+      </div>
+
+      <div class="diario-item">
+        <span class="data-tag">20/08/2026</span>
+        <p>Fizemos os sabonetes de uva (alguns incolores e outros com cor).</p>
+      </div>
+
+      <div class="diario-item">
+        <span class="data-tag">27/08/2026</span>
+        <p>Começamos a produzir os sabonetes de pinhão e registramos tudo.</p>
+      </div>
+
+      <div class="diario-item">
+        <span class="data-tag">03/09/2026</span>
+        <p>Começamos a fazer os sabonetes de erva-mate e também fizemos o papel de erva-mate.</p>
+      </div>
+
+      <div class="diario-item">
+        <span class="data-tag">05/09/2026</span>
+        <p>Iniciamos outras formas e testes de microencapsulação.</p>
+      </div>
+
+      <div class="diario-item">
+        <span class="data-tag">10/09/2026</span>
+        <p>Fizemos a primeira pesagem de todos os sabonetes e registramos para comparar com a próxima semana (após 7 dias) para verificar a perda de água.</p>
+      </div>
+
+      <div class="diario-item">
+        <span class="data-tag">17/09/2026</span>
+        <p>Fizemos o registo da segunda pesagem dos sabonetes. Também começamos a fazer alguns sabonetes para venda.</p>
+      </div>
+
+      <div class="diario-item">
+        <span class="data-tag">24/09/2026</span>
+        <p>Fizemos mais alguns sabonetes para vender!</p>
+      </div>
+    </div>
+
+    <!-- Mosaico com 19 Fotos -->
+    <h2 class="galeria-titulo">📸 Galeria do Projeto (19 Fotos)</h2>
+    <div class="galeria-grid">
+      <div class="foto-box"><img src="https://via.placeholder.com/200/ffb3c6/ffffff?text=Foto+1" alt="Foto 1"><span>Foto 01</span></div>
+      <div class="foto-box"><img src="https://via.placeholder.com/200/ffb3c6/ffffff?text=Foto+2" alt="Foto 2"><span>Foto 02</span></div>
+      <div class="foto-box"><img src="https://via.placeholder.com/200/ffb3c6/ffffff?text=Foto+3" alt="Foto 3"><span>Foto 03</span></div>
+      <div class="foto-box"><img src="https://via.placeholder.com/200/ffb3c6/ffffff?text=Foto+4" alt="Foto 4"><span>Foto 04</span></div>
+      <div class="foto-box"><img src="https://via.placeholder.com/200/ffb3c6/ffffff?text=Foto+5" alt="Foto 5"><span>Foto 05</span></div>
+      <div class="foto-box"><img src="https://via.placeholder.com/200/ffb3c6/ffffff?text=Foto+6" alt="Foto 6"><span>Foto 06</span></div>
+      <div class="foto-box"><img src="https://via.placeholder.com/200/ffb3c6/ffffff?text=Foto+7" alt="Foto 7"><span>Foto 07</span></div>
+      <div class="foto-box"><img src="https://via.placeholder.com/200/ffb3c6/ffffff?text=Foto+8" alt="Foto 8"><span>Foto 08</span></div>
+      <div class="foto-box"><img src="https://via.placeholder.com/200/ffb3c6/ffffff?text=Foto+9" alt="Foto 9"><span>Foto 09</span></div>
+      <div class="foto-box"><img src="https://via.placeholder.com/200/ffb3c6/ffffff?text=Foto+10" alt="Foto 10"><span>Foto 10</span></div>
+      <div class="foto-box"><img src="https://via.placeholder.com/200/ffb3c6/ffffff?text=Foto+11" alt="Foto 11"><span>Foto 11</span></div>
+      <div class="foto-box"><img src="https://via.placeholder.com/200/ffb3c6/ffffff?text=Foto+12" alt="Foto 12"><span>Foto 12</span></div>
+      <div class="foto-box"><img src="https://via.placeholder.com/200/ffb3c6/ffffff?text=Foto+13" alt="Foto 13"><span>Foto 13</span></div>
+      <div class="foto-box"><img src="https://via.placeholder.com/200/ffb3c6/ffffff?text=Foto+14" alt="Foto 14"><span>Foto 14</span></div>
+      <div class="foto-box"><img src="https://via.placeholder.com/200/ffb3c6/ffffff?text=Foto+15" alt="Foto 15"><span>Foto 15</span></div>
+      <div class="foto-box"><img src="https://via.placeholder.com/200/ffb3c6/ffffff?text=Foto+16" alt="Foto 16"><span>Foto 16</span></div>
+      <div class="foto-box"><img src="https://via.placeholder.com/200/ffb3c6/ffffff?text=Foto+17" alt="Foto 17"><span>Foto 17</span></div>
+      <div class="foto-box"><img src="https://via.placeholder.com/200/ffb3c6/ffffff?text=Foto+18" alt="Foto 18"><span>Foto 18</span></div>
+      <div class="foto-box"><img src="https://via.placeholder.com/200/ffb3c6/ffffff?text=Foto+19" alt="Foto 19"><span>Foto 19</span></div>
+    </div>
+
+    <footer>
+      <p>💖 Feito para FECCI - Feira de Cultura Científica</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
